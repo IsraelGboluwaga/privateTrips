@@ -82,6 +82,18 @@
     .smaller-header {
         width: 500px;
     }
+    .main-nav {
+        margin-top: 17px;
+        margin-bottom: 50px;
+    }
+    .link-link {
+        margin-left: 20%;
+    }
+    .submit-btn {
+        margin-bottom: 14%;
+        margin-left: -28%;
+        margin-top: 9%;
+    }
 }
 @media only screen and (max-width:450px){
     .main-nav {
@@ -93,12 +105,24 @@
     .header-text{
         transform: translate(-38%, -29%);
     }
+    .logo {
+        height: 60px;
+    }
 
 }
 @media only screen and (max-width:400px){
     .main-nav {
         font-size: 68%;
         margin-top: 0%;
+        margin-bottom: 11%;
+    }
+    .link-link {
+        margin-left: 20%;
+    }
+    .submit-btn {
+        margin-bottom: 14%;
+        margin-left: -28%;
+        margin-top: 9%;
     }
     .header-text {
     width: 90%;
