@@ -317,6 +317,7 @@ footer p{
 
 .signin-page{
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.5)),url(img/signin-bg.jpeg);
+	height: 150vh;
 }
 .sign-in-header{
 	color: white;
@@ -353,4 +354,15 @@ footer p{
 }
 .smaller-text{
     font-size: 73%;
+}
+.link-link{
+	color: white;
+	text-decoration: none;
+	margin-left: -40%;
+}
+.link-link:hover,
+.link-link:active{
+	text-decoration:underline;
+	transition: text-decoration, 0.5s;
+	color:rgb(165, 164, 164);
 }
