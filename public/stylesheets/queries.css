@@ -98,8 +98,8 @@
 @media only screen and (max-width:400px){
     .main-nav {
         font-size: 68%;
+        margin-top: 0%;
     }
-
     .header-text {
     width: 90%;
     left: 39%;

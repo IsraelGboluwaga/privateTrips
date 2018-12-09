@@ -96,6 +96,9 @@ header{
 	margin-left: 10px;
 	opacity: 0.8;
 }
+nav{
+	text-overflow: none;
+}
 .main-nav{
 	float:right;
 	list-style: none;
@@ -366,3 +369,48 @@ footer p{
 	transition: text-decoration, 0.5s;
 	color:rgb(165, 164, 164);
 }
+
+/*----------------------------------------*/
+/*----------------------------------------*/
+/* DASHBOARD SECTION*/
+/*----------------------------------------*/
+/*----------------------------------------*/
+.small-logo{
+	height:50px;
+	width: auto;
+	float:left;
+	margin:20px;
+	margin-left: 20px;
+	opacity: 0.8;
+}
+.dashboard-nav{
+	background-color: rgba(65, 64, 64, 0.507);
+	padding-bottom: -2%;
+}
+.dashboard-icon{
+	height:30px;
+	width: auto;	
+}
+.dropdown-content{
+	display: none;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	width: 200px;
+	position: relative;
+	overflow: visible;
+}
+.dropdown{
+	position: relative;
+}
+.dropdown-content a {
+    color: black;
+    padding: 7px 7px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+	background-color: #f1f1f1
+}
+.dropdown:hover .dropdown-content {
+    display: list-item;
+}
+
