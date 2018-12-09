@@ -25,7 +25,7 @@
         transform: translate(-25%, -50%);
     }
     .contact {
-        height: 90vh;
+        height: 110vh;
     }
     header{
         background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.5)),url(img/secondHeader.jpeg);
