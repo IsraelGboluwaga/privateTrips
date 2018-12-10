@@ -128,14 +128,29 @@
         margin-top: 9%;
     }
     .header-text {
-    width: 90%;
-    left: 39%;
-    top: 50%;
-    font-size: 76%;
+        width: 90%;
+        left: 50%;
+        top: 50%;
+        font-size: 63%;
     }
     .contact-form {
     padding-left: 0%;
     }
+    .adjust{
+        margin-left: 27%;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select, textarea {
+        margin-left: -6%;
+    }
+    label{
+        margin-left: -6%;
+        padding-bottom: 2px;
+    }
+    
+    
 }
 @media only screen and (max-width:350px){
     .main-nav li {
