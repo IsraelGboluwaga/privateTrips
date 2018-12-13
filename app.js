@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose= require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,6 +12,18 @@ var signupRouter = require('./routes/signup');
 var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
+
+//to get rid of promise deprecation
+mongoose.promise = global.Promise;
+
+//Connecting to mongoose
+//in the bracket , you can have a local mongodb or a remote on e from m-lab
+mongoose.connect('mongodb://localhost/privatetrips-dev',{
+   useNewUrlParser: true 
+})
+.then(() => console.log("MongoDb has connected..."))
+.catch( err => console.log(err));
+	
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

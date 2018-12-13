@@ -379,13 +379,13 @@ footer p{
 	height:50px;
 	width: auto;
 	float:left;
-	margin:20px;
+	margin:7px;
 	margin-left: 20px;
 	opacity: 0.8;
 }
 .dashboard-nav{
 	background-color: rgba(65, 64, 64, 0.507);
-	padding-bottom: -2%;
+	padding-bottom: -4%;
 }
 .dashboard-icon{
 	height:30px;
@@ -395,8 +395,9 @@ footer p{
 	display: none;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	width: 200px;
-	position: relative;
+	position: fixed;
 	overflow: visible;
+	right: 2%
 }
 .dropdown{
 	position: relative;
@@ -413,4 +414,24 @@ footer p{
 .dropdown:hover .dropdown-content {
     display: list-item;
 }
-
+.dashboard-navi li:hover{
+	background-color:  rgba(65, 64, 64, 0.207);
+	transition: background-color, 0.9s;
+	
+}
+.dashboard-navi li a{
+	padding: 5px;
+}
+.dashboard-navi{
+	margin-top: 20px;
+}
+/*----------------------------------------*/
+/*----------------------------------------*/
+/* BODY OF DASHBOARD SECTION*/
+/*----------------------------------------*/
+/*----------------------------------------*/
+.entry{
+	text-align: left;
+	padding-left:1%;
+	padding-top:3%;
+}
