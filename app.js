@@ -3,7 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose= require('mongoose');
+var hbs = require('hbs');
+//var mongoose= require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -13,17 +14,26 @@ var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
 
+
+//Ive been trying to connect to mongooose.. this shit isn t working!!!!
+
 //to get rid of promise deprecation
-mongoose.promise = global.Promise;
+//mongoose.promise = global.Promise;
 
 //Connecting to mongoose
 //in the bracket , you can have a local mongodb or a remote on e from m-lab
-mongoose.connect('mongodb://localhost/privatetrips-dev',{
-   useNewUrlParser: true 
-})
-.then(() => console.log("MongoDb has connected..."))
-.catch( err => console.log(err));
+//mongoose.connect('mongodb://localhost/privatetrips-dev',{
+//   useNewUrlParser: true 
+//})
+//.then(() => console.log("MongoDb has connected..."))
+//.catch( err => console.log(err));
 	
+//To load idea models
+//require('./models/Idea');
+//const Idea = mongoose.mode('ideas');
+
+//To register Partials
+hbs.registerPartials(__dirname + '/views/partials');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
