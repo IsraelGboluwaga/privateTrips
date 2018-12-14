@@ -1,18 +1,57 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var hbs = require('hbs');
-//var mongoose= require('mongoose');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const hbs = require('hbs');
+const fileUpload = require('express-fileupload');
+const mysql = require('mysql');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var signinRouter = require('./routes/signin');
-var signupRouter = require('./routes/signup');
-var dashboardRouter = require('./routes/dashboard');
+//const mongoose= require('mongoose');
 
-var app = express();
+
+
+// To connect to mySQL database
+// create connection to database
+// the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
+const db = mysql.createConnection ({
+    host: 'localhost',
+    user: 'root',
+    password: 'private',
+    database: 'privateTrips'
+	
+});
+
+// connect to database
+db.connect((err) => {
+    if (err) {
+        //throw err;
+		console.log('Sorry database cannot be reached');
+		console.log(err);
+    }
+    console.log('Connected to database...');
+});
+global.db = db;
+
+
+
+
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const signinRouter = require('./routes/signin');
+const signupRouter = require('./routes/signup');
+const dashboardRouter = require('./routes/dashboard');
+
+const app = express();
+
+//Here the database is created
+app.get('/createdb', (reeq,res)=>{
+	let sql='CREATE DATABASE nodemysql';
+	db.query(sql,(err,result) =>{
+		if(err) throw err;
+		res.send('Database has been created');
+	})
+});
 
 
 //Ive been trying to connect to mongooose.. this shit isn t working!!!!
