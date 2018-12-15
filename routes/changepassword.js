@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET signIn page. */
+/* GET  page. */
 router.get('/', function(req, res, next) {
-  res.render('signin', {
+  res.render('changepassword', {
      title: 'Private trips',
      currentYear: new Date().getFullYear() 
      });
 });
 
 module.exports = router;
+
+

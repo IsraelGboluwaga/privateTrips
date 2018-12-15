@@ -410,7 +410,7 @@ footer p{
     display: block;
 }
 .dropdown-content a:hover {
-	background-color: #f1f1f1
+	background-color: #f1f1f1; 
 }
 .dropdown:hover .dropdown-content {
     display: list-item;
@@ -418,11 +418,13 @@ footer p{
 }
 .dashboard-navi li:hover{
 	background-color:  rgba(65, 64, 64, 0.207);
-	transition: background-color, 0.9s;
-	
+	transition: background-color, 0.9s;	
 }
 .dashboard-navi li a{
 	padding: 5px;
+}
+.dashboard-navi li{
+	border-radius: 22px;
 }
 .dashboard-navi{
 	margin-top: 20px;
@@ -452,4 +454,51 @@ footer p{
 }
 .space{
 	margin-top:3%;
+}
+.session-header{
+	text-decoration: underline;	
+}
+
+/*-------------------------------------*/
+/*--------Tooltip-----------------------------*/
+/*-------------------------------------*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100.5%;
+    left: 50%;
+    margin-left: -60px;
+	font-size:60%;
+	opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+	opacity: 1;
+	/*transition: opacity 7s; */
+	transition: visibility 2s;	
 }

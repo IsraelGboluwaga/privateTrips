@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const _ = require('lodash');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -29,7 +30,7 @@ db.connect((err) => {
 		console.log('Sorry database cannot be reached');
 		console.log(err);
     }
-    console.log('Connected to database...');
+    	console.log('Connected to database...');
 });
 global.db = db;
 
@@ -41,10 +42,12 @@ const usersRouter = require('./routes/users');
 const signinRouter = require('./routes/signin');
 const signupRouter = require('./routes/signup');
 const dashboardRouter = require('./routes/dashboard');
+const changepasswordRouter = require('./routes/changepassword');
 
 const app = express();
 
 //Here the database is created
+
 app.get('/createdb', (reeq,res)=>{
 	let sql='CREATE DATABASE nodemysql';
 	db.query(sql,(err,result) =>{
@@ -89,6 +92,7 @@ app.use('/users', usersRouter);
 app.use('/signin', signinRouter);
 app.use('/signup', signupRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/changepassword', changepasswordRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
