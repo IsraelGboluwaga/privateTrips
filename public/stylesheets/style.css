@@ -244,10 +244,14 @@ textarea{
 	padding: 7px;
 	border-radius: 3px;
 	border:1px solid #ccc;
+	
+	
 }
 textarea{
 	height: 100px;
+	color:#555;
 }
+
 input[type="checkbox"]{
 	margin: 10px 5px 10px 0;
 }
@@ -375,6 +379,10 @@ footer p{
 /* DASHBOARD SECTION*/
 /*----------------------------------------*/
 /*----------------------------------------*/
+.dashboard-bg{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.5)), url(img/diary1.jpeg);	
+}
+
 .small-logo{
 	height:50px;
 	width: auto;
@@ -387,6 +395,7 @@ footer p{
 	background-color: rgba(65, 64, 64, 0.507);
 	padding-bottom: -4%;
 	box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+	border-radius: 0px 0px 30px 30px;
 }
 .dashboard-icon{
 	height:30px;
@@ -408,16 +417,17 @@ footer p{
     padding: 7px 7px;
     text-decoration: none;
     display: block;
+	background-color: #9a969778;
 }
 .dropdown-content a:hover {
-	background-color: #f1f1f1; 
+	background-color: #B4B4B4; 
 }
 .dropdown:hover .dropdown-content {
     display: list-item;
 	font-size: 60%;
 }
 .dashboard-navi li:hover{
-	background-color:  rgba(65, 64, 64, 0.207);
+	background-color:  rgba(59,59,59,0.91);
 	transition: background-color, 0.9s;	
 }
 .dashboard-navi li a{
@@ -440,16 +450,17 @@ footer p{
 	padding-top:2%;
 	margin-left: 1%;
 	margin-right: 15%;
+	color:#C8C8C8;
 }
 .session-pad{
-	background-color: rgba(67,67,67,0.44);
+	background-color: rgba(67,67,67,0.74);
 	border-radius: 5px;
 	margin-top:10px;
 	margin-left: 2%;
 }
 .session-pad a{
 	text-decoration: none;
-	color:inherit;
+	color:#BBBBBB;
 	font-size: 70%;
 }
 .space{
@@ -457,6 +468,7 @@ footer p{
 }
 .session-header{
 	text-decoration: underline;	
+	color:#BBBBBB;
 }
 
 /*-------------------------------------*/
@@ -502,3 +514,20 @@ footer p{
 	/*transition: opacity 7s; */
 	transition: visibility 2s;	
 }
+/*-------------------------------------*/
+/*--------Add Form-----------------------------*/
+/*-------------------------------------*/
+.add-form{
+	position: absolute;
+	top: 10%;
+	left:6%;
+	width: 50%;
+}
+.visibility{
+	visibility:hidden;
+	transition-timing-function: ease-in-out;
+}
+.close-icon{
+	border-radius: 14px;
+}
+

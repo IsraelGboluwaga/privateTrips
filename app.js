@@ -7,34 +7,45 @@ const logger = require('morgan');
 const hbs = require('hbs');
 const fileUpload = require('express-fileupload');
 const mysql = require('mysql');
+const yargs =require('yargs');
+const fs = require('fs');
 
-//const mongoose= require('mongoose');
 
+const argv = yargs.argv;
+const command = argv[2];
+
+
+//requiring my own files
+const crud = require('./operations.js');
+//fs.writeFileSync('console.json', JSON.stringify(process.argv));
+//fs.writeFileSync('console.json', JSON.stringify(argv));
+
+if (command === 'add'){
+	crud.getAll();
+}
 
 
 // To connect to mySQL database
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
+//it was giving issues about creating db with password given as TRUE, so i had to comment out the password config object.
 const db = mysql.createConnection ({
-    host: 'localhost',
-    user: 'root',
-    password: 'private',
-    database: 'privateTrips'
-	
+   host: 'localhost',
+   user: 'root',
+  // password: 'private',
+   database: 'ptrips'	
 });
 
 // connect to database
 db.connect((err) => {
-    if (err) {
-        //throw err;
-		console.log('Sorry database cannot be reached');
+   if (err) {
+        throw err;
+		//throw err gave bugs, reverted to console.log
 		console.log(err);
-    }
-    	console.log('Connected to database...');
+		console.log('Sorry, database cannot be reached -- No connection could be made.');
+   }else
+   	console.log('Connected to database...');
 });
-global.db = db;
-
-
 
 
 const indexRouter = require('./routes/index');
@@ -42,37 +53,39 @@ const usersRouter = require('./routes/users');
 const signinRouter = require('./routes/signin');
 const signupRouter = require('./routes/signup');
 const dashboardRouter = require('./routes/dashboard');
-const changepasswordRouter = require('./routes/changepassword');
+
 
 const app = express();
 
+
 //Here the database is created
 
-app.get('/createdb', (reeq,res)=>{
-	let sql='CREATE DATABASE nodemysql';
+app.get('/createdb', (req,res)=>{
+	let sql='CREATE DATABASE ptrips';
 	db.query(sql,(err,result) =>{
-		if(err) throw err;
-		res.send('Database has been created');
-	})
+		if(err) {
+		//throw err;
+		console.log(err);
+		console.log('Sorry, database cannot be created');
+			console.log(result);
+		}else
+			res.send('Database has been created');
+	});
 });
 
+var rquery='INSERT INTO userinfo (FirstName, LastName, Username, Sex, PhoneNumber)'
+var values=('Ola', 'Gold', 'golddollarr', 'm', '09030368060')
+var fullqueery = rquery,values
 
-//Ive been trying to connect to mongooose.. this shit isn t working!!!!
+db.query(fullqueery,(err, res)=>{
+	if(err){
+		console.log(err);
+	}else
+		console.log('Query successful')
+})
 
-//to get rid of promise deprecation
-//mongoose.promise = global.Promise;
 
-//Connecting to mongoose
-//in the bracket , you can have a local mongodb or a remote on e from m-lab
-//mongoose.connect('mongodb://localhost/privatetrips-dev',{
-//   useNewUrlParser: true 
-//})
-//.then(() => console.log("MongoDb has connected..."))
-//.catch( err => console.log(err));
-	
-//To load idea models
-//require('./models/Idea');
-//const Idea = mongoose.mode('ideas');
+
 
 //To register Partials
 hbs.registerPartials(__dirname + '/views/partials');
@@ -92,7 +105,7 @@ app.use('/users', usersRouter);
 app.use('/signin', signinRouter);
 app.use('/signup', signupRouter);
 app.use('/dashboard', dashboardRouter);
-app.use('/changepassword', changepasswordRouter);
+ 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -6,6 +6,7 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
@@ -19,5 +20,18 @@
     "nodemon": "^1.18.7",
     "req-flash": "0.0.3",
     "yargs": "^12.0.5"
-  }
+  },
+  "description": "An online diary/journal",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gold-olar/privateTrips.git"
+  },
+  "author": "Olamide Samuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gold-olar/privateTrips/issues"
+  },
+  "homepage": "https://github.com/gold-olar/privateTrips#readme"
 }

@@ -7,7 +7,7 @@
 				<a href="#" class="tooltip">  <span class="tooltiptext">Profile </span><img class= "dashboard-icon" alt="Profile" src="stylesheets/icons/ios-contact.svg"> </a>
             </li>
             <li>
-                <a href="#"> <img class= "dashboard-icon" alt="Profile" src="stylesheets/icons/ios-add.svg"></a>
+                <a href="#" id="addpage"> <img class= "dashboard-icon" alt="Profile" src="stylesheets/icons/ios-add.svg"></a>
             </li>
             <li>
                 <a href="#"> <img class= "dashboard-icon" alt="Profile" src="stylesheets/icons/ios-notifications-outline.svg"></a>
@@ -16,7 +16,7 @@
                 <a href="#"> <img class= "dashboard-icon drop-link" alt="Settings" src="stylesheets\icons\ios-build.svg"></a>
                 <div class="dropdown-content">
                     <br>
-                    <a href="/changepassword">Change password</a>
+                    <a href="#" id="change-password">Change password</a>
                     <a href="#">Sign Out </a>
                     <a href="/policy">Policies and Agreements</a>
                     <br>
@@ -26,11 +26,115 @@
         </ul>
     </div>
 </nav>
-<body>
-    <div class="row">
+<body class="dashboard-bg">
+<!-- -------------------------------------------- -->
+<!-- Change of Password form -->
+<!-- -------------------------------------------- -->
+
+	<div class="container visibility add-form" id="view-changepassword-form">
+        <img src="stylesheets/img/close.png" alt="close" class="close-icon" id="close" >
+
+        <h2 class="sign-in-header"> Change Pasword</h2>
+
+        <form class="form-pad" action="" method="post">
+     
+            <div class="row">
+                    <div class="col span-1-of-3">
+                        <label >Old  Password</label>
+                    </div>
+                    <div class= "col span-2-of-3">
+                        <input type="password" name="Password"   required>
+                    </div>
+    
+            </div>
+             <div class="row">
+                    <div class="col span-1-of-3">
+                        <label >New   Password</label>
+                    </div>
+                    <div class= "col span-2-of-3">
+                        <input type="password" name="Password"   required>
+                    </div>
+    
+            </div>
+             <div class="row">
+                    <div class="col span-1-of-3">
+                        <label > Confirm  new password</label>
+                    </div>
+                    <div class= "col span-2-of-3">
+                        <input type="password" name="Password"   required>
+                    </div>
+    
+            </div>
+           
+            <div class="row">
+                     <div class= "col span-3-of-3 submt-pad">
+                            <input class="submit-btn" type="submit" value="Submit">
+                        
+                    </div>
+                 </div>
+
+        </form>
+
+        </div>
+
+
+<!-- -------------------------------------------- -->
+<!-- End of CoP form -->
+<!-- -------------------------------------------- -->
+
+
+
+
+
+<!-- -------------------------------------------- -->
+<!--  Add form -->
+<!-- -------------------------------------------- -->  
+     <div class="container add-form visibility" id="add-form-view">
+        <img src="stylesheets/img/close.png" alt="close" class="close-icon" id="close-2" >
+         <h2 class="sign-in-header"> Add Session</h2>
+
+        <form class="form-pad" action="crud.getAll()" method="get">
+            <div class="row">
+                <div class="col span-1-of-3 ">
+                    <label > Title</label>
+                </div>
+                <div class= "col span-2-of-3">
+                    <input type="text" name="title"   required>
+                </div>
+
+            </div>
+           <div class="row">
+					<div class="col span-1-of-3">
+						<label>Content </label>
+					</div>
+					<div class= "col span-2-of-3">
+						<textarea name="content" style="color:#555;"></textarea>
+					</div>
+			</div>
+           
+            <div class="row">
+                 <div class= "col span-3-of-3 submt-pad">
+                     <input class="submit-btn" type="submit" value="add">
+                 </div>
+            </div>
+
+        </form>
+
+        </div>
+<!-- -------------------------------------------- -->
+<!-- End of Add form -->
+<!-- -------------------------------------------- -->
+
+<!-- -------------------------------------------- -->
+<!-- Body-->
+<!-- -------------------------------------------- -->
+    <div id="hide-rest">
+     <div class="row" id="hide-rest">
         <h4 class="entry">  All Sessions</h4>
     </div>
-    <div class="row entry session-pad">
+    
+    
+    <div class="row entry session-pad" >
         <div class="col span-3-of-4 ">
             <div class="row"> <span class="session-header"> Today at School</span></div>
             <div class="row">
@@ -75,6 +179,8 @@
     <div class="clear-fix">
     	<div class="space"></div>
     </div>
+    
+    
 <section class= "footer-section">
 				<footer>
 					<div class="row">
@@ -85,5 +191,6 @@
 				
 				</footer>
 	</section>
+	</div>
 </body>
 </html>
