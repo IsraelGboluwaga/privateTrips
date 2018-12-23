@@ -36,10 +36,11 @@ const db = mysql.createConnection ({
    database: 'ptrips'	
 });
 
+
 // connect to database
 db.connect((err) => {
    if (err) {
-        throw err;
+        //throw err;
 		//throw err gave bugs, reverted to console.log
 		console.log(err);
 		console.log('Sorry, database cannot be reached -- No connection could be made.');

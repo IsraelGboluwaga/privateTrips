@@ -97,6 +97,9 @@
     .adjust{
         margin-left: 16%;
     }
+     .sign-up-row{
+        margin-top: 10px;
+    }
 }
 @media only screen and (max-width:450px){
     .main-nav {
@@ -149,6 +152,9 @@
         margin-left: -6%;
         padding-bottom: 2px;
     }
+     .sign-up-row{
+        margin-top: 10px;
+    }
     
     
 }
@@ -166,5 +172,7 @@
     padding-left: 7px;
     font-size: 94%;
     }
-    
+    .sign-up-row{
+        margin-top: 10px;
+    }
 }
