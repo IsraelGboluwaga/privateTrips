@@ -74,16 +74,30 @@ app.get('/createdb', (req,res)=>{
 	});
 });
 
-var rquery='INSERT INTO userinfo (FirstName, LastName, Username, Sex, PhoneNumber)'
-var values=('Ola', 'Gold', 'golddollarr', 'm', '09030368060')
-var fullqueery = rquery,values
+// THIS SQL QUERY WORKS !!!!!
+var AddQuery = "INSERT INTO userinfo (`FirstName`, `LastName`, `Username`, `Sex`, `PhoneNumber`) VALUES('Olarrrr', 'Goldiiinnnn', 'golddollaiirr', 'f', 09030368060)"; 
+console.log(AddQuery);
+	db.query(AddQuery,function(err, result){
+		if(err){
+			console.log(err);
+		}else{
+			console.log('Add Query successful');
+		}
+	});
+var deleteQuery = "DELETE from userinfo WHERE FirstName='Olarrr'"
+console.log(deleteQuery);
+	db.query(deleteQuery,function(err, result){
+		if(err){
+			console.log(err);
+		}else{
+			console.log('Delete Query successful');
+		}
+});
 
-db.query(fullqueery,(err, res)=>{
-	if(err){
-		console.log(err);
-	}else
-		console.log('Query successful')
-})
+
+
+
+
 
 
 
