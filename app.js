@@ -9,44 +9,11 @@ const fileUpload = require('express-fileupload');
 const mysql = require('mysql');
 const yargs =require('yargs');
 const fs = require('fs');
+const mongoose = require('mongoose');
 
 
-const argv = yargs.argv;
-const command = argv[2];
 
 
-//requiring my own files
-const crud = require('./operations.js');
-//fs.writeFileSync('console.json', JSON.stringify(process.argv));
-//fs.writeFileSync('console.json', JSON.stringify(argv));
-
-if (command === 'add'){
-	crud.getAll();
-}
-
-
-// To connect to mySQL database
-// create connection to database
-// the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
-//it was giving issues about creating db with password given as TRUE, so i had to comment out the password config object.
-const db = mysql.createConnection ({
-   host: 'localhost',
-   user: 'root',
-  // password: 'private',
-   database: 'ptrips'	
-});
-
-
-// connect to database
-db.connect((err) => {
-   if (err) {
-        //throw err;
-		//throw err gave bugs, reverted to console.log
-		console.log(err);
-		console.log('Sorry, database cannot be reached -- No connection could be made.');
-   }else
-   	console.log('Connected to database...');
-});
 
 
 const indexRouter = require('./routes/index');
@@ -58,48 +25,15 @@ const dashboardRouter = require('./routes/dashboard');
 
 const app = express();
 
+//To get rid of deprecation warning using global promises.
+mongoose.Promise = global.Promise;
 
-//Here the database is created
-
-app.get('/createdb', (req,res)=>{
-	let sql='CREATE DATABASE ptrips';
-	db.query(sql,(err,result) =>{
-		if(err) {
-		//throw err;
-		console.log(err);
-		console.log('Sorry, database cannot be created');
-			console.log(result);
-		}else
-			res.send('Database has been created');
-	});
-});
-
-// THIS SQL QUERY WORKS !!!!!
-var AddQuery = "INSERT INTO userinfo (`FirstName`, `LastName`, `Username`, `Sex`, `PhoneNumber`) VALUES('Olarrrr', 'Goldiiinnnn', 'golddollaiirr', 'f', 09030368060)"; 
-console.log(AddQuery);
-	db.query(AddQuery,function(err, result){
-		if(err){
-			console.log(err);
-		}else{
-			console.log('Add Query successful');
-		}
-	});
-var deleteQuery = "DELETE from userinfo WHERE FirstName='Olarrr'"
-console.log(deleteQuery);
-	db.query(deleteQuery,function(err, result){
-		if(err){
-			console.log(err);
-		}else{
-			console.log('Delete Query successful');
-		}
-});
-
-
-
-
-
-
-
+//to connect to mongoose
+mongoose.connect('mongodb://localhost/private-trips', {
+  useMongoClient : true 
+})
+.then(()=> console.log('Mongodb started and conected...'))
+.catch(err => console.log(err));
 
 
 //To register Partials
