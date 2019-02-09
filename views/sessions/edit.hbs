@@ -1,0 +1,81 @@
+<head>
+	<!-- meta tags -->
+	<meta charset="utf-8" name= "viewport" content="width=device-width, initial-scale=1.0">
+	<!-- End of tags-->
+
+	<link href="../stylesheets/img/logo.png" rel= "shortcut icon" type= "image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/queries.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/grid.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="/javascripts/jquery.js"></script>
+	<script type="text/javascript" src="/javascripts/script.js"></script>
+
+    
+	<title> Private Trips</title>
+</head>
+
+
+
+<header class ="add-bg">
+<!-- ------------------------------------------------ -->
+<!--  Edit form -->
+<!-- --------------------------------------------  --> 
+     <div class="container add-form " id="add-form-view">
+
+
+         <h2 class="sign-in-header"> Edit Session</h2>
+
+            {{#each errors}}
+                <div class ="row">
+                <div class ="col span-1-of-3  ">
+
+                </div>
+                <div class ="col span-1-of-3 white ">
+                    {{text}}
+                </div>
+                <div class ="col span-1-of-3">
+
+                </div>
+                </div>
+               
+            {{else}}
+
+            {{/each}}
+
+
+        <form class="form-pad" action="/sessions/{{session.id}}?_method=PUT" method="post">
+
+        <input type ="hidden" name ="_method" value="PUT">
+            <div class="row">
+                <div class="col span-1-of-3 ">
+                    <label > Title</label>
+                </div>
+                <div class= "col span-2-of-3">
+                    <input type="text" name="title" value="{{req.session.title}}" >
+                </div>
+
+            </div>
+           <div class="row">
+					<div class="col span-1-of-3">
+						<label>Content </label>
+					</div>
+					<div class= "col span-2-of-3">
+						<textarea name="details" style="color:#555;"> {{req.sessions.details}}</textarea>
+					</div>
+			</div> 
+           
+            <div class="row">
+                 <div class= "col span-3-of-3 submt-pad">
+                     <input class="submit-btn" type="submit" value="Edit">
+                 </div>
+            </div>
+
+        </form>
+
+        </div>
+</header>
+<!-- -------------------------------------------- -->
+<!-- End of edit form -->
+<!-- -------------------------------------------- -->
