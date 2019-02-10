@@ -29,9 +29,13 @@ const app = express();
 //To get rid of deprecation warning using global promises.
 mongoose.Promise = global.Promise;
 
-//to connect to mongoose
-mongoose.connect('mongodb://localhost/private-trips', {
-  useNewUrlParser:true
+//db config
+const db = require('./config/database')
+
+
+//to connect to mongoos
+mongoose.connect(db.mongoURI, {
+  useNewUrlParser:true,
 })
 .then(()=> console.log('Mongodb started and conected...'))
 .catch(err => console.log(err));
@@ -72,7 +76,15 @@ app.use('/sessions/edit', editsessionRouter);
 
 //Edit idea form 
 app.get('/sessions/edit/:id', (req, res) => {
-  res.render('sessions/edit')
+  Session.findOne({
+    _id:req.params.id
+  })
+  .then(session  => {
+    res.render('sessions/edit',{
+      session:session
+    });
+  });
+  
 });
 
 
@@ -106,22 +118,39 @@ app.post('/sessions', (req,res) =>{
 
 
 // Edit form process
-app.put('/sessions/:id', (req,res)=>{
+app.put('/sessions/:id', (req, res)=>{
   Session.findOne({
-    _id:req.params.id
-  
+    _id: req.params.id
   })
   .then(session =>{
     //new values
     session.title = req.body.title;
     session.details = req.body.details;
 
-    idea.save()
+    session.save()
     .then(session =>{
-      res.redirect('/sessions/dashboard')
+      res.redirect('/sessions/dashboard');
     })
-  });
+  }); 
+});
+
+// To delete sessions
+app.delete('/sessions/:id', (req,res) =>{
+  Session.remove({_id: req.params.id})
+  .then(() => {
+    res.redirect('/sessions/dashboard');
   
+  })
+});
+
+
+//DElete Idea
+app.delete('/ideas/:id', (req,res) =>{
+	Session.remove({_id: req.params.id})
+	.then(()  => {
+		res.redirect('/ideas');
+	})
+	//res.send('DELETE');
 });
 
 

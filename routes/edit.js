@@ -8,18 +8,12 @@ const Session  = mongoose.model('sessions');
 
 
 /* GET  page. */
-router.get('/sessions/edit/:id', (req, res, )=> {
-    Session.findOne({
-        _id: req.params.id
-    })
-    .then(session =>{
-        res.render('sessions/edit', {
-            session:session,
-            title: 'Private trips',
-            currentYear: new Date().getFullYear() 
-            });
-    });
- 
-});
+router.get('/', function(req, res, next ){
+    res.render('sessions/edit/:id', {
+       title: 'Private trips',
+       currentYear: new Date().getFullYear() 
+       });
+  });
+  
 
 module.exports = router;

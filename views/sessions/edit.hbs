@@ -46,14 +46,14 @@
 
 
         <form class="form-pad" action="/sessions/{{session.id}}?_method=PUT" method="post">
-
         <input type ="hidden" name ="_method" value="PUT">
+        
             <div class="row">
                 <div class="col span-1-of-3 ">
                     <label > Title</label>
                 </div>
                 <div class= "col span-2-of-3">
-                    <input type="text" name="title" value="{{req.session.title}}" >
+                    <input type="text" name="title" value="{{session.title}}" >
                 </div>
 
             </div>
@@ -62,7 +62,7 @@
 						<label>Content </label>
 					</div>
 					<div class= "col span-2-of-3">
-						<textarea name="details" style="color:#555;"> {{req.sessions.details}}</textarea>
+						<textarea name="details" style="color:#555;"> {{session.details}}</textarea>
 					</div>
 			</div> 
            

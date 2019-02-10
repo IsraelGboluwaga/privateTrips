@@ -548,7 +548,8 @@ footer p{
 
 .dashboard-btn{
 	color:#BBBBBB;
-	/* font-size: 10%; */
+	font-size: 70%; 
+	float: left;
 	background-color: rgba(48, 48, 48, 0.797);
 	border-radius: 7px;
 	border: solid 1px black;

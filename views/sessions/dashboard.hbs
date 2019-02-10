@@ -138,8 +138,10 @@
               <div class="row">
                  <div class= "col span-1-of-2">
                     <a href= "/sessions/edit/{{id}}" class="dashboard-btn" > Edit</a>
-                 
-                    <a href ="#" class="dashboard-btn"> Delete</a>
+                 <form method ="post" action="/sessions/{{id}}?_method=DELETE">
+                    <input type ="hidden" name ="_method" value="DELETE">
+                    <input type ="submit" class="dashboard-btn" value ="Delete" > 
+                </form>
                  </div>
             </div>
         </div>
