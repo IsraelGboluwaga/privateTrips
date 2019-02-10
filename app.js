@@ -6,11 +6,11 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
 const fileUpload = require('express-fileupload');
-const fs = require('fs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-
+const flash = require('connect-flash');
+const ssession = require('express-session');
 
 
 
@@ -53,6 +53,26 @@ app.use(bodyParser.json())
 app.use(methodOverride('_method'));
 
 
+//Express session middleware
+app.use(ssession({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized : true
+}))
+
+
+// flash middleware
+app.use(flash());
+
+//Global variables
+app.use(function(req, res, next){
+  res.locals.sucess_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
+
+
 //To register Partials
 hbs.registerPartials(__dirname + '/views/partials');
 
@@ -68,8 +88,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/signin', signinRouter);
-app.use('/signup', signupRouter);
+app.use('/users/signin', signinRouter);
+app.use('/users/signup', signupRouter);
 app.use('/sessions/dashboard', dashboardRouter);
 app.use('/sessions/add', addsessionRouter);
 app.use('/sessions/edit', editsessionRouter);
@@ -111,6 +131,7 @@ app.post('/sessions', (req,res) =>{
     new Session(newUser)
     .save()
     .then(session =>{
+      req.flash('success_msg', 'Added.')
       res.redirect('/sessions/dashboard');
     })
   }
@@ -129,6 +150,7 @@ app.put('/sessions/:id', (req, res)=>{
 
     session.save()
     .then(session =>{
+      req.flash('success_msg', 'Done.')
       res.redirect('/sessions/dashboard');
     })
   }); 
@@ -148,6 +170,7 @@ app.delete('/sessions/:id', (req,res) =>{
 app.delete('/ideas/:id', (req,res) =>{
 	Session.remove({_id: req.params.id})
 	.then(()  => {
+    req.flash('success_msg', 'Deleted.')
 		res.redirect('/ideas');
 	})
 	//res.send('DELETE');

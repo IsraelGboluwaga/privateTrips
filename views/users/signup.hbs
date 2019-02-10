@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- meta tags -->
+	<meta charset="utf-8" name= "viewport" content="width=device-width, initial-scale=1.0">
+	<!-- End of tags-->
+
+	<link href="/stylesheets/img/logo.png" rel= "shortcut icon" type= "image/x-icon"/>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/queries.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/grid.css">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="../javascripts/jquery.js"></script>
+	<script type="text/javascript" src="../javascripts/script.js"></script>
+
+
+	<title> Private Trips</title>
+</head>
+<body>
+
+<header class="signin-page">
+		<nav>
+			<div class="row nav-pad">
+				<img  class= "logo" src="../stylesheets/img/logo.png">
+
+				<ul class= "main-nav">
+					<li class ="indicator"><a href="/"> Home</a></li>
+					<li class ="indicator"><a href="/"> Features</a></li>
+					<li class ="indicator"><a href="/"> Contact</a></li>
+					<li class ="sign-in"><a href="/users/signin">
+							Sign in <img class= "nav-icon" src="../stylesheets/icons/ios-log-in.svg"/></a></li>
+				</ul>
+			</div>
+        </nav>
+        <div class="container">
+
+        <h2 class="sign-in-header"> Sign Up</h2>
+
+        <form class="form-pad" action="" method="post">
+            <div class="row sign-up-row">
+                <div class="col span-1-of-3 ">
+                    <label > First Name</label>
+                </div>
+                <div class= "col span-2-of-3">
+                    <input type="text" name="Firstname"   required>
+                </div>
+
+            </div>
+            <div class="row sign-up-row">
+                <div class="col span-1-of-3 ">
+                    <label > Last Name</label>
+                </div>
+                <div class= "col span-2-of-3">
+                    <input type="text" name="Lastname"   required>
+                </div>
+
+            </div>
+            <div class="row sign-up-row">
+                <div class="col span-1-of-3 ">
+                    <label >E-mail</label>
+                </div>
+                <div class= "col span-2-of-3">
+                    <input type="email" name="email"   required>
+                </div>
+
+            </div>
+            <div class="row sign-up-row">
+                <div class="col span-1-of-3 ">
+                    <label > Username</label>
+                </div>
+                <div class= "col span-2-of-3">
+                    <input type="text" name="Username"   required>
+                </div>
+
+            </div>
+            <div class="row sign-up-row">
+                    <div class="col span-1-of-3">
+                        <label > Password</label>
+                    </div>
+                    <div class= "col span-2-of-3">
+                        <input type="password" name="Password"   required>
+                    </div>
+    
+            </div>
+             <div class="row sign-up-row">
+                    <div class="col span-1-of-3">
+                        <label > Confirm Password</label>
+                    </div>
+                    <div class= "col span-2-of-3">
+                        <input type="password" name="Password"   required>
+                    </div>
+    
+            </div>
+            <div class="row sign-up-row">
+                    <div class="col span-1-of-3">
+                        <label > Sex </label>
+                    </div>
+                    <div class= "col span-2-of-3">
+                        <input type="radio" name="sex" value="male" checked> Male
+                        <input type="radio" name="sex" value="female"> Female
+                        <input type="radio" name="sex" value="none"> None
+                    </div>
+    
+            </div>
+            
+            <div class="row sign-up-row">
+                     <div class= "col span-3-of-3 submt-pad">
+                            <input class="submit-btn" type="submit" value="Sign Up">
+                        
+                    </div>
+                 </div>
+
+        </form>
+
+        </div>
+        
+
+    </header>
+    <div class="clearfix"></div>
+    <section class= "footer-section">
+	
+		{{> footer}}
+	</section>
+</body>
+</html>

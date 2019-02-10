@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET signIn page. */
 router.get('/', function(req, res, next) {
-  res.render('signin', {
+  res.render('users/signin', {
      title: 'Private trips',
      currentYear: new Date().getFullYear() 
      });
