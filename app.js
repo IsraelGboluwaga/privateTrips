@@ -30,7 +30,7 @@ const app = express();
 mongoose.Promise = global.Promise;
 
 //db config
-const db = require('./config/database')
+const db = require('./config/database');
 
 
 //to connect to mongoos
