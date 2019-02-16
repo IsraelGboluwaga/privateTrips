@@ -1,0 +1,59 @@
+<head>
+    <!-- meta tags -->
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- End of tags-->
+
+    <link href="/stylesheets/img/logo.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/queries.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/grid.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../javascripts/jquery.js"></script>
+    <script type="text/javascript" src="../javascripts/script.js"></script>
+
+
+    <title> Private Trips</title>
+</head>
+<header class="add-bg">
+
+    <body class="">
+        <div class = "row"> 
+            <div class = "col span-1-of-3" > 
+
+            </div>
+              <div class = "col span-1-of-3" > 
+                  <a href="/sessions/dashboard" class ="dashboard-btn">Back</a>
+            </div>
+              <div class = "col span-1-of-3" > 
+
+            </div>
+        </div>
+
+        <div class="row session-pad">
+            <div class="col span-3-of-4">
+                <div class="row">
+                    <div class="col span-4-of-4 entry">
+                        {{title}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-4-of-4 Session-body white-view">
+                        {{details}}
+                    </div>
+                </div>
+
+                 <div class="row shift">
+                    <div class="col span-1-of-2">
+                        <a href="/sessions/edit/{{id}}" class="dashboard-btn"> Edit</a>
+                        <form method="post" action="/sessions/{{id}}?_method=DELETE">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" class="dashboard-btn" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</header>
+</body>

@@ -475,8 +475,12 @@ footer p{
 }
 .Session-body{
     padding-top: 2%;
-    padding-left: 1%;
+	padding-left: 1%;
+	box-sizing: border-box;
+	overflow: hidden ; 
+
 }
+
 
 /*-------------------------------------*/
 /*--------Tooltip-----------------------------*/
@@ -553,9 +557,10 @@ footer p{
 	background-color: rgba(48, 48, 48, 0.797);
 	border-radius: 7px;
 	border: solid 1px black;
-	padding:2px;
+	padding:3px;
 	text-transform: uppercase;
 	margin-right: 1.4%;
+	text-decoration: none;
 }
 
 .dashboard-btn:hover{
@@ -563,4 +568,12 @@ footer p{
 	color: #BBBBBB;
 	transition: color, 0.5s;
 	transition: border, 0.5s;
+}
+.shift{
+	margin-left: 1%;
+	margin-top: 2%;
+}
+.white-view{
+	color: white;
+	font-size: 80%;
 }

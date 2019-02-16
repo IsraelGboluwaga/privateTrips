@@ -1,19 +1,19 @@
 <head>
-	<!-- meta tags -->
-	<meta charset="utf-8" name= "viewport" content="width=device-width, initial-scale=1.0">
-	<!-- End of tags-->
+    <!-- meta tags -->
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- End of tags-->
 
-	<link href="/stylesheets/img/logo.png" rel= "shortcut icon" type= "image/x-icon"/>
-	<link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
-	<link rel="stylesheet" type="text/css" href="../stylesheets/queries.css">
-	<link rel="stylesheet" type="text/css" href="../stylesheets/grid.css">
-	<link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
-	<script type="text/javascript" src="../javascripts/jquery.js"></script>
-	<script type="text/javascript" src="../javascripts/script.js"></script>
+    <link href="/stylesheets/img/logo.png" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/queries.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/grid.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/normalize.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="../javascripts/jquery.js"></script>
+    <script type="text/javascript" src="../javascripts/script.js"></script>
 
-    
-	<title> Private Trips</title>
+
+    <title> Private Trips</title>
 </head>
 
 
@@ -21,13 +21,10 @@
 <!-- To loop through errors-->
 
 {{#each errors}}
-    <div class = "col span-1-of-2">
-        {{text}}
-    </div>
-{{else}}
-
-
-{{/each}}
+<div class="col span-1-of-2">
+    {{text}}
+</div>
+{{else}} {{/each}}
 
 <nav>
     <div class="row nav-pad dashboard-nav">
@@ -35,16 +32,25 @@
 
         <ul class="main-nav dashboard-navi ">
             <li>
-				{{!-- <a href="#" class="tooltip">  <span class="tooltiptext">Profile </span><img class= "dashboard-icon" alt="Profile" src="../stylesheets/icons/ios-contact.svg"> </a> --}}
+                {{!--
+                <a href="#" class="tooltip">
+                    <span class="tooltiptext">Profile </span>
+                    <img class="dashboard-icon" alt="Profile" src="../stylesheets/icons/ios-contact.svg"> </a> --}}
             </li>
             <li>
-                <a href="/sessions/add" <!--id="addpage"--> <img class= "dashboard-icon" alt="Add Session" src="../stylesheets/icons/ios-add.svg"></a>
+                <a href="/sessions/add" <!--id="addpage" -->
+                    <img class="dashboard-icon" alt="Add Session" src="../stylesheets/icons/ios-add.svg">
+                </a>
             </li>
             <li>
-                <a href="#"> <img class= "dashboard-icon" alt="Profile" src="../stylesheets/icons/ios-notifications-outline.svg"></a>
+                <a href="#">
+                    <img class="dashboard-icon" alt="Profile" src="../stylesheets/icons/ios-notifications-outline.svg">
+                </a>
             </li>
             <li class="dropdown">
-                <a href="#"> <img class= "dashboard-icon drop-link" alt="Settings" src="../stylesheets\icons\ios-build.svg"></a>
+                <a href="#">
+                    <img class="dashboard-icon drop-link" alt="Settings" src="../stylesheets\icons\ios-build.svg">
+                </a>
                 <div class="dropdown-content">
                     <br>
                     <a href="#" id="change-password">Change password</a>
@@ -53,129 +59,151 @@
                     <br>
                 </div>
             </li>
-            
+
         </ul>
     </div>
 </nav>
-<body class="dashboard-bg">
-<!-- -------------------------------------------- -->
-<!-- Change of Password form -->
-<!-- -------------------------------------------- -->
 
-	<div class="container visibility add-form" id="view-changepassword-form">
-        <img src="../stylesheets/img/close.png" alt="close" class="close-icon" id="close" >
+<body class="dashboard-bg">
+    <!-- -------------------------------------------- -->
+    <!-- Change of Password form -->
+    <!-- -------------------------------------------- -->
+
+    <div class="container visibility add-form" id="view-changepassword-form">
+        <img src="../stylesheets/img/close.png" alt="close" class="close-icon" id="close">
 
         <h2 class="sign-in-header"> Change Pasword</h2>
 
         <form class="form-pad" action="" method="post">
-     
+
             <div class="row">
-                    <div class="col span-1-of-3">
-                        <label >Old  Password</label>
-                    </div>
-                    <div class= "col span-2-of-3">
-                        <input type="password" name="Password"   required>
-                    </div>
-    
+                <div class="col span-1-of-3">
+                    <label>Old Password</label>
+                </div>
+                <div class="col span-2-of-3">
+                    <input type="password" name="Password" required>
+                </div>
+
             </div>
-             <div class="row">
-                    <div class="col span-1-of-3">
-                        <label >New   Password</label>
-                    </div>
-                    <div class= "col span-2-of-3">
-                        <input type="password" name="Password"   required>
-                    </div>
-    
-            </div>
-             <div class="row">
-                    <div class="col span-1-of-3">
-                        <label > Confirm  new password</label>
-                    </div>
-                    <div class= "col span-2-of-3">
-                        <input type="password" name="Password"   required>
-                    </div>
-    
-            </div>
-           
             <div class="row">
-                     <div class= "col span-3-of-3 submt-pad">
-                            <input class="submit-btn" type="submit" value="Submit">
-                        
-                    </div>
-                 </div>
+                <div class="col span-1-of-3">
+                    <label>New Password</label>
+                </div>
+                <div class="col span-2-of-3">
+                    <input type="password" name="Password" required>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col span-1-of-3">
+                    <label> Confirm new password</label>
+                </div>
+                <div class="col span-2-of-3">
+                    <input type="password" name="Password" required>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col span-3-of-3 submt-pad">
+                    <input class="submit-btn" type="submit" value="Submit">
+
+                </div>
+            </div>
 
         </form>
 
-        </div>
+    </div>
 
 
-<!-- -------------------------------------------- -->
-<!-- End of CoP form -->
-<!-- -------------------------------------------- -->
+    <!-- -------------------------------------------- -->
+    <!-- End of CoP form -->
+    <!-- -------------------------------------------- -->
 
 
 
 
 
-<!-- -------------------------------------------- -->
-<!-- Body-->
-<!-- -------------------------------------------- -->
+    <!-- -------------------------------------------- -->
+    <!-- Body-->
+    <!-- -------------------------------------------- -->
     <div id="hide-rest">
-     <div class="row" id="hide-rest">
-        <h4 class="entry">  All Sessions</h4>
-    </div>
-    
-    {{#each sessions}}
+        <div class="row" id="hide-rest">
+            <h4 class="entry"> All Sessions</h4>
+        </div>
 
-    <div class="row entry session-pad" >
-        <div class="col span-3-of-4 ">
-            <div class="row"> <span class="session-header"><b> {{title}} </b> </span></div>
-            <div class="row">
-                    <a href=""> <p class="Session-body">{{details}}</p></a>
+        {{#each sessions}}
+
+        <div class="row entry session-pad">
+
+            <div class="col span-4-of-4 ">
+                <div class="row">
+                    <div class="col span-1-of-2 ">
+
+                        <span class="session-header">
+                            <b>
+                                <a href="/sessions/{{id}}">
+                                    {{title}}
+                                </a>
+                            </b>
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-4-of-4 Session-body">
+
+                        <p class="">{{details}}</p>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col span-1-of-2">
+                        <a href="/sessions/edit/{{id}}" class="dashboard-btn"> Edit</a>
+                        <form method="post" action="/sessions/{{id}}?_method=DELETE">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" class="dashboard-btn" value="Delete">
+                        </form>
+                    </div>
+                </div>
             </div>
-              
 
-              <div class="row">
-                 <div class= "col span-1-of-2">
-                    <a href= "/sessions/edit/{{id}}" class="dashboard-btn" > Edit</a>
-                 <form method ="post" action="/sessions/{{id}}?_method=DELETE">
-                    <input type ="hidden" name ="_method" value="DELETE">
-                    <input type ="submit" class="dashboard-btn" value ="Delete" > 
-                </form>
-                 </div>
+        </div>
+
+
+
+        {{else}}
+        <div class="row">
+            <div class="col span-1-of-2 ">
+                <p class="Session-body"> No sessions yet</p>
+
+            </div>
+            <div class="col span-1-of-2 ">
+
+
             </div>
         </div>
 
-    </div>
+        {{/each}}
 
 
 
-    {{else}}
-         <div class="col span-1-of-2 ">
-            <div class="row">  <p class ="Session-body"> No sessions yet</p></div>
-            
+        <div class="clear-fix">
+            <div class="space"></div>
         </div>
 
-       
-    {{/each}}
 
+        <section class="footer-section">
+            <footer>
+                <div class="row">
+                    <p>
+                        Copyright &copy; {{currentYear}} by Olamide Samuel. All rights reserved.Privacy policy.
+                    </p>
+                </div>
 
-
-    <div class="clear-fix">
-    	<div class="space"></div>
+            </footer>
+        </section>
     </div>
-    
-    
-<section class= "footer-section">
-				<footer>
-					<div class="row">
-						<p>
-							Copyright &copy; {{currentYear}} by Olamide Samuel. All rights reserved.Privacy policy.
-						</p>
-					</div>
-				
-				</footer>
-	</section>
-	</div>
 </body>
+
 </html>

@@ -146,10 +146,10 @@
     input[type="email"],
     input[type="password"],
     select, textarea {
-        margin-left: -6%;
+        margin-left: -10%;
     }
     label{
-        margin-left: -6%;
+        margin-left: -10%;
         padding-bottom: 2px;
     }
      .sign-up-row{
@@ -158,6 +158,9 @@
     .container{
         margin-right: 5% !important;
         margin-left: 5% !important;
+    }
+    .add-form{
+        width: 80%;
     }
     
     
