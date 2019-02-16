@@ -35,8 +35,45 @@
         <div class="container">
 
         <h2 class="sign-in-header"> Sign in</h2>
+            {{#if error}}
 
-        <form class="form-pad" action="/sessions" method="post">
+
+            <div class ="row">
+                <div class ="col span-1-of-3  ">
+
+                </div>
+                <div class ="col span-1-of-3 white ">
+                    {{error}}
+                </div>
+                <div class ="col span-1-of-3">
+
+                </div>
+                </div>
+
+            {{/if}}
+
+
+            {{#each errors}}
+                <div class ="row">
+                <div class ="col span-1-of-3  ">
+
+                </div>
+                <div class ="col span-1-of-3 white ">
+                    {{text}}
+                </div>
+                <div class ="col span-1-of-3">
+
+                </div>
+                </div>
+               
+            {{else}}
+
+            {{/each}}
+
+
+
+
+        <form class="form-pad" action="/users/signin" method="post">
             <div class="row">
                 <div class="col span-1-of-3 ">
                     <label > Username</label>

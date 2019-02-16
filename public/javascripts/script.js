@@ -3,7 +3,7 @@ var name = $('#name').val();
 $(document).ready(function(){
 	//For feedback on contact form
     $('#submit').click(function(){
-        $('#feedback').html('Thanks ' + name + ' your message has been sent.');
+        $('#feedback').html('Thanks, your message has been sent.');
     });
 	//to view add session form
 	$('#addpage').click(function(){

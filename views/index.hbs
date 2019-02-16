@@ -64,8 +64,29 @@
 		<div class="row">
 				<h2> Contact </h2>
 			</div>
+
+				{{#each errors}}
+                <div class ="row">
+                <div class ="col span-1-of-3  ">
+
+                </div>
+                <div class ="col span-1-of-3 white ">
+                    {{text}}
+                </div>
+                <div class ="col span-1-of-3">
+
+                </div>
+                </div>
+               
+           		 {{else}}
+
+            		{{/each}}		
+
+
+
+
 		<div class="row form-pad">
-			<form method="" action="" class="contact-form">
+			<form method="post" action="/" class="contact-form">
 				<div class="row">
 					<div class="col span-1-of-3">
 						<label for ="name"> Name</label>

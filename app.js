@@ -1,16 +1,18 @@
 const createError = require('http-errors');
 const express = require('express');
-const _ = require('lodash');
+//const _ = require('lodash');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const hbs = require('hbs');
-const fileUpload = require('express-fileupload');
+//const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const ssession = require('express-session');
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 
 
@@ -32,8 +34,10 @@ mongoose.Promise = global.Promise;
 //db config
 const db = require('./config/database');
 
+//pasport config
+require('./config/passport')(passport);
 
-//to connect to mongoos
+//to connect to mongoose
 mongoose.connect(db.mongoURI, {
   useNewUrlParser:true,
 })
@@ -43,7 +47,16 @@ mongoose.connect(db.mongoURI, {
 
 //To load the idea model
 require('./models/Session');
-const Session     = mongoose.model('sessions');
+const Session = mongoose.model('sessions');
+
+// TO load User model
+require('./models/User');
+const User = mongoose.model('users');
+
+//to load contact model
+require('./models/Contact');
+const Contact = mongoose.model('contact');
+
 
 // Body parser middleware
 app.use(bodyParser.urlencoded({ extended: false}))
@@ -58,8 +71,10 @@ app.use(ssession({
   secret: 'secret',
   resave: true,
   saveUninitialized : true
-}))
-
+}));
+//for Passport Middleware  User Session
+app.use(passport.initialize());
+app.use(passport.session());
 
 // flash middleware
 app.use(flash());
@@ -108,7 +123,7 @@ app.get('/sessions/edit/:id', (req, res) => {
 });
 
 
-//to process add form validte empty spaces and push errors 
+//to process add form validate empty spaces and push errors 
 app.post('/sessions', (req,res) =>{
   let errors = [];
   if(!req.body.title){
@@ -131,7 +146,7 @@ app.post('/sessions', (req,res) =>{
     new Session(newUser)
     .save()
     .then(session =>{
-      req.flash('success_msg', 'Added.')
+      req.flash('success_msg', 'Added.');
       res.redirect('/sessions/dashboard');
     })
   }
@@ -150,7 +165,7 @@ app.put('/sessions/:id', (req, res)=>{
 
     session.save()
     .then(session =>{
-      req.flash('success_msg', 'Done.')
+      req.flash('success_msg', 'Done.');
       res.redirect('/sessions/dashboard');
     })
   }); 
@@ -176,6 +191,131 @@ app.delete('/ideas/:id', (req,res) =>{
 	//res.send('DELETE');
 });
 
+ 
+// Signup form post
+app.post('/users/signup', (req, res) =>{
+  let errors = [];
+  if (req.body.password != req.body.password2){
+    errors.push({text: 'Passwords do not match'});
+  }if (req.body.password.length < 4){
+    errors.push({text: 'Password must be at least 4 characters'}); 
+  }if (req.body.Username.length < 4){
+    errors.push({text: 'Username must be at least 4 characters'}); 
+  }
+  
+  if(errors.length > 0){
+    res.render('users/signup',{
+      errors:errors,
+      Firstname: req.body.Firstname,
+      Lastname : req.body.Lastname,
+      Username: req.body.Username,
+      email: req.body.email,
+      password: req.body.password,
+      password2: req.body.password2
+    });
+  }
+    else{
+    User.findOne({Username:req.body.Username})
+    User.findOne({email:req.body.email})
+    
+    .then(user =>{
+      if(user){
+        req.flash('error_msg', 'Username has ben taken ');
+        req.flash('error_msg', ' email has been registered by another user');
+        res.redirect('/users/signup');
+      
+      }
+      
+      else{
+      const newUser = new User({
+      Firstname : req.body.Firstname,
+      Lastname : req.body.Lastname,
+      Username: req.body.Username,
+      email: req.body.email,
+      password: req.body.password,
+      password2: req.body.password2
+    });
+  
+    bcrypt.genSalt(10, (err, salt) =>{
+      bcrypt.hash(newUser.password, salt, (err,hash)=>{
+        if(err) throw err;
+        newUser.password = hash;
+        newUser.save()
+        .then(user =>{
+          req.flash('success_msg', 'Successfull, Proceed to Sign in');
+          res.redirect('/users/signin');
+        })
+        .catch(err =>{
+          console.log(err);
+          return;
+         
+        });
+      });
+    });
+  }
+    // console.log(newUser);
+    // res.send('Passed');
+    });
+  // res.send('Successfull')
+  }
+  //console.log(req.body)
+});
+ 
+
+
+
+//Signin form post
+app.post('/signin', (req, res, next) =>{
+   
+   
+  passport.authenticate('local', {
+    
+    successRedirect: '/sessions',
+    failureRedirect: '/users/signin',
+  
+    failureFlash: true
+  })(req, res, next)
+  if(err) throw err;
+});
+
+
+app.post('/', (req, res) =>{
+  console.log(req.body.news)
+  console.log(typeof(req.body.news))
+   let errors = [];
+  if(!req.body.message){
+    errors.push({text:'You cant send an empty message.'});
+  }
+  if(errors.length > 0){
+    res.render('index',{
+    errors: errors,
+    name: req.body.name,
+    email: req.body.email,
+    news: req.body.email,
+    message: req.body.message
+    });
+  } else{
+    const newContact = {
+      name: req.body.name,
+      email: req.body.email,
+      news: req.body.news,
+      message: req.body.message,
+
+    }
+    new Contact(newContact)
+    .save()
+    .then(contact =>{
+      req.flash('success_msg', 'Thanks, your message has been sent');
+      res.redirect('/');
+    })
+   
+  }
+});
+
+
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -192,6 +332,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+  
 module.exports = app;
- 
