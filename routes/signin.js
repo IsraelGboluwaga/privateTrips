@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+/* GET signIn page. */
 router.get('/', function(req, res, next) {
-  res.render('signin', {
+  res.render('users/signin', {
      title: 'Private trips',
      currentYear: new Date().getFullYear() 
      });

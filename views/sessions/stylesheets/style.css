@@ -457,6 +457,7 @@ footer p{
 	border-radius: 5px;
 	margin-top:10px;
 	margin-left: 2%;
+	box-sizing:border-box; 
 }
 .session-pad a{
 	text-decoration: none;
@@ -475,7 +476,8 @@ footer p{
 }
 .Session-body{
     padding-top: 2%;
-    padding-left: 1%;
+	padding-left: 1%;
+	box-sizing: border-box;
 }
 
 /*-------------------------------------*/
@@ -548,8 +550,7 @@ footer p{
 
 .dashboard-btn{
 	color:#BBBBBB;
-	font-size: 70%; 
-	float: left;
+	/* font-size: 10%; */
 	background-color: rgba(48, 48, 48, 0.797);
 	border-radius: 7px;
 	border: solid 1px black;

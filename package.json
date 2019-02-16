@@ -3,15 +3,40 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "express": "~4.16.0",
+    "express-session": "^1.15.6",
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
+    "lodash": "^4.17.11",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.4.9",
     "morgan": "~1.9.0",
-    "nodemon": "^1.18.7"
-  }
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.7",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "req-flash": "0.0.3",
+    "yargs": "^12.0.5"
+  },
+  "description": "An online diary/journal",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gold-olar/privateTrips.git"
+  },
+  "author": "Olamide Samuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gold-olar/privateTrips/issues"
+  },
+  "homepage": "https://github.com/gold-olar/privateTrips#readme"
 }

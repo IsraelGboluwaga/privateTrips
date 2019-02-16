@@ -7,7 +7,7 @@
 					<li class ="indicator"><a href="/">Home</a></li>
 					<li class ="indicator"><a href="#feautures-section"> Features</a></li>
 					<li class ="indicator"><a href="#contact-section"> Contact</a></li>
-					<li class ="sign-in"><a href="signin">
+					<li class ="sign-in"><a href="/users/signin">
 							Sign in <img class= "nav-icon" src="stylesheets/icons/ios-log-in.svg"/></a></li>
 				</ul>
 			</div>
@@ -21,7 +21,7 @@
 				<br>
 				 Private Trips is here to help.
 			</p>
-			<a class="sign-in started" href="signup"> Get Started</a>
+			<a class="sign-in started" href="/users/signup"> Get Started</a>
 			
 		</div>
 	</header>
@@ -64,8 +64,29 @@
 		<div class="row">
 				<h2> Contact </h2>
 			</div>
+
+				{{#each errors}}
+                <div class ="row">
+                <div class ="col span-1-of-3  ">
+
+                </div>
+                <div class ="col span-1-of-3 white ">
+                    {{text}}
+                </div>
+                <div class ="col span-1-of-3">
+
+                </div>
+                </div>
+               
+           		 {{else}}
+
+            		{{/each}}		
+
+
+
+
 		<div class="row form-pad">
-			<form method="" action="" class="contact-form">
+			<form method="post" action="/" class="contact-form">
 				<div class="row">
 					<div class="col span-1-of-3">
 						<label for ="name"> Name</label>
@@ -95,7 +116,7 @@
 						<label>Your Message</label>
 					</div>
 					<div class= "col span-2-of-3">
-						<textarea name="message" placeholder="Your message"></textarea>
+						<textarea name="message" placeholder="Your message" style="color:#555;"></textarea>
 					</div>
 				</div>
 				<div class="row">
@@ -104,47 +125,17 @@
 						<span id="feedback"></span>
 					</div>
 					<div class= "col span-2-of-3">
-						<input id="submit" class="submit-btn" type="submit" value="Send">
+						<input id="submit" class="submit-btn adjust" type="submit" value="Send">
 					</div>
 				</div>
 		</form>
 		</div>
 	</section>
 	<section class= "footer-section">
-			<footer>
-					<div class="row">
-						<div class="col span-1-of-2">
-							<h4>Follow Us </h4><hr>
-							<ul class="footer-nav footer-pad">
-								<li><a href="#"> <img class= "footer-icon" src="stylesheets/icons/logo-facebook.svg"></a></li>
-								<li><a href="#"> <img class= "footer-icon" src="stylesheets/icons/logo-twitter.svg"></a></li>
-								<li><a href="#"> <img class= "footer-icon" src="stylesheets/icons/logo-whatsapp.svg"></a></li>
-								<li><a href="#"> <img class= "footer-icon" src="stylesheets/icons/logo-instagram.svg"></a></li>
-								<li><a href="#"> <img class= "footer-icon" src="stylesheets/icons/logo-linkedin.svg"></a></li>
-								<li><a href="#"> <img class= "footer-icon" src="stylesheets/icons/logo-reddit.svg"></a></li>
-								
-							</ul>
-						</div>
-						<div class="col span-1-of-2">
-								<h4>  &nbsp; </h4><hr>
-							<ul class="footer-nav">
-								<li><a href="#"> About Us</a></li>
-								<li><a href="#"> How to Use </a></li>
-								<li><a href="#"> Android App </a></li>
-								<li><a href="#">  FAQs</a></li>
-							</ul>
-						</div>
-				
-					
-					
-				</div>
-					<div class="row">
-						<p>
-							Copyright &copy; {{currentYear}} by Olamide Samuel. All rights reserved.Privacy policy.
-						</p>
-					</div>
-				
-				</footer>
+		
+		{{> footer}}
 	</section>
+		
+	
 </body>
 </html>
