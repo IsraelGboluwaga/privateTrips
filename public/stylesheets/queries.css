@@ -46,7 +46,10 @@
 
 @media only screen and (max-width: 700px){
     .logo {
-    margin-left: 40%;
+    margin-left: 4%;
+    }
+    .main-nav {
+        margin-top: 25px;
     }
 }
 @media only screen and (max-width: 550px){
@@ -83,8 +86,8 @@
         width: 500px;
     }
     .main-nav {
-        margin-top: 17px;
-        margin-bottom: 50px;
+        margin-top: 14px;
+        margin-bottom: 13px;
     }
     .link-link {
         margin-left: 20%;
@@ -103,8 +106,10 @@
 }
 @media only screen and (max-width:450px){
     .main-nav {
-        font-size: 80%;
+        margin-top: 14px;
+        margin-bottom: 13px;
     }
+  
     .main-nav li {
     padding-left: 11px;
     }
@@ -119,8 +124,8 @@
 @media only screen and (max-width:400px){
     .main-nav {
         font-size: 68%;
-        margin-top: 0%;
-        margin-bottom: 11%;
+        margin-top: 6%;
+        margin-bottom: 5%;
     }
     .link-link {
         margin-left: 20%;
